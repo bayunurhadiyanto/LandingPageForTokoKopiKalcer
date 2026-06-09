@@ -1,9 +1,12 @@
 import type { ReactNode } from "react";
-import { Coffee, MapPin, Clock, Phone } from "lucide-react";
+import { useState } from "react";
+import { Coffee, MapPin, Clock, Phone, Menu, X } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import logoImage from "../imports/LOGO.png";
 
 export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -31,8 +34,37 @@ export default function App() {
                 Kontak
               </a>
             </div>
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-lg border border-gray-200 text-[#0048a8] hover:bg-gray-100 transition"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu"}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+        {mobileMenuOpen ? (
+          <div className="md:hidden bg-white/95 border-t border-gray-200 shadow-sm">
+            <div className="flex flex-col gap-3 px-4 py-4">
+              <a href="#beranda" onClick={() => setMobileMenuOpen(false)} className="font-bold text-[#0048a8] hover:text-[#003d8f] transition-colors">
+                Beranda
+              </a>
+              <a href="#tentang" onClick={() => setMobileMenuOpen(false)} className="font-bold text-[#0048a8] hover:text-[#003d8f] transition-colors">
+                Tentang
+              </a>
+              <a href="#menu" onClick={() => setMobileMenuOpen(false)} className="font-bold text-[#0048a8] hover:text-[#003d8f] transition-colors">
+                Menu
+              </a>
+              <a href="#galeri" onClick={() => setMobileMenuOpen(false)} className="font-bold text-[#0048a8] hover:text-[#003d8f] transition-colors">
+                Galeri
+              </a>
+              <a href="#kontak" onClick={() => setMobileMenuOpen(false)} className="font-bold text-[#0048a8] hover:text-[#003d8f] transition-colors">
+                Kontak
+              </a>
+            </div>
+          </div>
+        ) : null}
       </nav>
 
       {/* Hero Section */}
