@@ -198,9 +198,20 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-[#0048a8] py-8 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <img src={logoImage} alt="Toko Kopi Kalcer Logo" className="h-12 brightness-0 invert" />
-            <span className="text-xl font-bold text-white">Toko Kopi Kalcer Yogyakarta</span>
+          <div className="flex flex-col items-center justify-center gap-3 mb-4">
+            <div className="flex items-center justify-center gap-3">
+              <img src={logoImage} alt="Toko Kopi Kalcer Logo" className="h-12 brightness-0 invert" />
+              <span className="text-xl font-bold text-white">Toko Kopi Kalcer Yogyakarta</span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-white/80">
+              <a href="https://www.instagram.com/tokcerykc/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                Instagram
+              </a>
+              <span className="hidden sm:inline">|</span>
+              <a href="https://www.tiktok.com/@tokcerykc" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                TikTok
+              </a>
+            </div>
           </div>
           <p className="text-white/80 text-sm">© 2026 Toko Kopi Kalcer. Semua hak dilindungi undang-undang.</p>
         </div>
